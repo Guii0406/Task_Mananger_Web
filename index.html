@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>LightPro - Task Manager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="trello.css" />
+    <script src="trello.js"></script>
+  </head>
+  <body>
+    <section class="grid-header">
+      <header class="header">
+        <h1 class="welcome" id="welcome"></h1>
+        <a href="login.html" id="logout-btn">Logout</a>
+      </header>
+    </section>
+    <section class="grid-main">
+      <main class="main">
+        <div class="column">
+          <section class="column-header">
+            <p class="title">Backlog</p>
+            <button class="btn" onclick="abrirModal('backlog-list')" id="backlog-btn">
+              <i class="fas fa-plus"></i>
+            </button>
+          </section>
+          <section class="column-content">
+            <ul class="list" id="backlog-list"></ul>
+          </section>
+        </div>
+        <div class="column">
+          <section class="column-header">
+            <p class="title">A Fazer</p>
+            <button class="btn" onclick="abrirModal('todo-list')" id="todo-btn">
+              <i class="fas fa-plus"></i>
+            </button>
+          </section>
+          <section class="column-content">
+            <ul class="list" id="todo-list"></ul>
+          </section>
+        </div>
+        <div class="column">
+          <section class="column-header">
+            <p class="title">Em Andamento</p>
+            <button class="btn" onclick="abrirModal('inprogress-list')" id="inprogress-btn">
+              <i class="fas fa-plus"></i>
+            </button>
+          </section>
+          <section class="column-content">
+            <ul class="list" id="inprogress-list"></ul>
+          </section>
+        </div>
+        <div class="column">
+          <section class="column-header">
+            <p class="title">Aguardando</p>
+            <button class="btn" onclick="abrirModal('waiting-list')" id="waiting-btn">
+              <i class="fas fa-plus"></i>
+            </button>
+          </section>
+          <section class="column-content">
+            <ul class="list" id="waiting-list"></ul>
+          </section>
+        </div>
+        <div class="column">
+          <section class="column-header">
+            <p class="title">Em Teste</p>
+            <button class="btn" onclick="abrirModal('testing-list')" id="testing-btn">
+              <i class="fas fa-plus"></i>
+            </button>
+          </section>
+          <section class="column-content">
+            <ul class="list" id="testing-list"></ul>
+          </section>
+        </div>
+        <div class="column">
+          <section class="column-header">
+            <p class="title">Feito</p>
+            <button class="btn" onclick="abrirModal('done-list')" id="done-btn">
+              <i class="fas fa-plus"></i>
+            </button>
+          </section>
+          <section class="column-content">
+            <ul class="list" id="done-list"></ul>
+          </section>
+        </div>
+      </main>
+    </section>
+    <div class="modal" id="form">
+      <div class="modal-body">
+        <h1>Adicionar Nova Tarefa</h1>
+        <span class="modal-form">
+          <label for="task-name">Nome da Tarefa</label>
+          <input type="text" class="modal-input" id="task-name" maxlength="150" />
+          <div class="vertical-spacer"></div>
+          <label for="task-name">Data de Entrega</label>
+          <input type="date" class="modal-input" id="task-date" />
+        </span>
+        <span>
+          <button class="modal-btn cancel-btn" id="cancel-btn">Cancelar</button>
+          <button class="modal-btn" id="save-btn">Salvar</button>
+        </span>
+      </div>
+    </div>
+    <div class="modal" id="edit-form">
+      <div class="modal-body">
+        <h1>Editar Tarefa</h1>
+        <span class="modal-form">
+          <input type="hidden" id="task-id-edit" />
+          <label for="task-name-edit">Nome da Tarefa</label>
+          <input type="text" class="modal-input" id="task-name-edit" maxlength="150" />
+          <div class="vertical-spacer"></div>
+          <label for="task-date-edit">Data de Entrega</label>
+          <input type="date" class="modal-input" id="task-date-edit" />
+          <div class="vertical-spacer"></div>
+          <label for="task-status-new">Coluna</label>
+          <select class="modal-input" id="task-status-new">
+            <option value="backlog-list">
+              Backlog
+            </option>
+            <option value="todo-list">
+              A Fazer
+            </option>
+            <option value="inprogress-list">
+              Em Andamento
+            </option>
+            <option value="waiting-list">
+              Aguardando
+            </option>
+            <option value="testing-list">
+              Em Teste
+            </option>
+            <option value="done-list">
+              Feito
+            </option>
+            <input type="hidden" id="task-status-old" />
+          </select>
+        </span>
+        <div class="btns">
+          <button class="modal-btn cancel-btn" id="edit-cancel-btn">Cancelar</button>
+          <button class="modal-btn" id="edit-save-btn">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

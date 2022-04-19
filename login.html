@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LightPro - Task Manager</title>
+    <link rel="stylesheet" href="login.css" />
+    <script src="Registrar.js"></script>
+  </head>
+  <body>
+    <div id="all">
+      <form action="index.html">
+
+        <fieldset id="login-background">
+          <legend>Login</legend>
+          
+          <label for="nome">Usuário</label>
+          <input required placeholder="Digite seu usuário" type="text" name="" id="nome" />
+          
+          <label for="senha">Senha</label>
+          <input required placeholder="Digite sua senha" type="password" name="" id="senha" />
+          
+          <input type="checkbox" id="lembrar" checked />
+          <label id="exception" for="lembrar">Lembrar identificação de usuário</label>
+          
+          <input id="btn" type="submit" value="Entrar" />
+          
+          <p id="registrar" onclick="registrar()">Criar conta</p>
+        </form>
+      </fieldset>
+    </div>
+
+    <div id="registro-bg">
+      <fieldset>
+        <form onsubmit="msg()">
+          <label for="email">E-mail</label>
+          <input placeholder="Digite o seu e-mail" class="input-registro" required id="email" type="email" />
+
+          <label for="nome-completo">Nome completo</label>
+          <input placeholder="Digite seu nome completo" class="input-registro" required id="nome-completo" type="text" />
+
+          <label for="nome-usuario">Usuário</label>
+          <input placeholder="Digite o seu usuário" class="input-registro" required id="nome-usuario" type="text" />
+
+          <label for="senha-registro">Senha</label>
+          <input placeholder="Digite sua senha" class="input-registro" required id="senha-registro" type="password" />
+
+          <label for="senha-registro2">Repita a senha</label>
+          <input placeholder="Digite sua senha novamente" class="input-registro" required id="senha-registro2" type="password" />
+
+          <div id="btns">
+            <input onclick="fecharcadastro()" class="btnn" id="cancelar" type="button" value="Cancelar" />
+            <button class="btnn">Cadastrar</button>
+          </div>
+        </form>
+      </fieldset>
+    </div>
+  </body>
+</html>
